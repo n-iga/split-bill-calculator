@@ -16,11 +16,15 @@
         <div class="input-group">
             <label for="numPeople">人数：
                 <input type="number" id="numPeople" min="1" max="100" required>
+                <button id="btn_minus" class="btn_decrease" onclick="substractPeople()">-</button>
+                <button id="btn_plus" class="btn_increase" onclick="addPeople()">+</button>
             </label>
         </div>
         <div class="input-group">
             <label for="totalAmount">金額：
                 <input type="number" id="totalAmount" min="1" max="999999" required>
+                <button id="btn_minus"  class="btn_decrease" onclick="substractTotal()">-</button>
+                <button id="btn_plus" class="btn_increase" onclick="addTotal()">+</button>
             </label>
         </div>
 
