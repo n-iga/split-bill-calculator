@@ -12,13 +12,33 @@ const elemId_modal = document.getElementById("calcModeModal");
 const elemId_radioButtons = document.querySelectorAll("input[name='calcMode']");
 const elemId_minUnit = document.getElementById("minUnit");
 
+// 人数・金額の入力時にテーブル生成
+document.addEventListener("DOMContentLoaded", function () {
+    elemId_numPeople.addEventListener("input", function () {
+        [numPeople, totalAmount] = getInputValue();
+        generateTable();
+    });
+    elemId_totalAmount.addEventListener("input", function () {
+        [numPeople, totalAmount] = getInputValue();
+        generateTable();
+    });
+});
+
 // 入力値の取得
 function getInputValue() {
-    numPeople = parseInt(elemId_numPeople.value);
-    totalAmount = parseInt(elemId_totalAmount.value);
-    if (isNaN(numPeople) || isNaN(totalAmount) || numPeople <= 0 || totalAmount <= 0) {
+    let l_numPeople, l_totalAmount;
+    l_numPeople = parseInt(elemId_numPeople.value);     // 人数
+    if (l_numPeople > 100 || l_numPeople <= 0) {
+        elemId_errorMessage.textContent = "人数は1~100の範囲で入力してください";
         return;
     }
+    l_totalAmount = parseInt(elemId_totalAmount.value); // 金額
+    if (l_totalAmount > 999999 || l_totalAmount <= 0) {
+        elemId_errorMessage.textContent = "金額は1～999,999の範囲で入力してください";
+        return;
+    }
+    elemId_errorMessage.textContent = ""
+    return [l_numPeople, l_totalAmount];
 }
 
 // テーブル生成
@@ -27,7 +47,10 @@ function generateTable() {
     tableBody.innerHTML = "";   // テーブル初期化
 
     if (isNaN(numPeople) || isNaN(totalAmount) || numPeople <= 0 || totalAmount <= 0) {
-        updateTotals();
+        // 合計行に値設定
+        elemId_totalPayment.textContent = `0 円`;
+        elemId_totalPercentage.textContent = `0.00 %`;
+        elemId_errorMessage.textContent = "";
         return;
     }
 
@@ -121,7 +144,7 @@ function updateTable() {
     let total_tmp2 = 0;
 
     rows.forEach(row => {
-        
+
         targetRow++;
 
         //　固定行の場合、処理をスキップ
@@ -147,10 +170,10 @@ function updateTable() {
 }
 
 // 金額を人数で割る
-function splitAmount(p_totalAmount, p_numPeople){
+function splitAmount(p_totalAmount, p_numPeople) {
     let l_evenSplit = (Math.floor((p_totalAmount / p_numPeople) / minUnit)) * minUnit;   // 整数部分
     let l_remainder = p_totalAmount - l_evenSplit * p_numPeople;                         // 余り
-    return[l_evenSplit, l_remainder]
+    return [l_evenSplit, l_remainder]
 }
 
 // 支払金額の算出
@@ -280,18 +303,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     elemId_minUnit.addEventListener("change", function () {
         minUnit = parseInt(elemId_minUnit.value, 10);
-    });
-});
-
-// 人数・金額の入力時にテーブル生成
-document.addEventListener("DOMContentLoaded", function () {
-    elemId_numPeople.addEventListener("input", function () {
-        getInputValue();
-        generateTable();
-    });
-    elemId_totalAmount.addEventListener("input", function () {
-        getInputValue();
-        generateTable();
     });
 });
 

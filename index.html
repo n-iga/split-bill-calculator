@@ -15,12 +15,12 @@
         <!--入力-->
         <div class="input-group">
             <label for="numPeople">人数：
-                <input type="number" id="numPeople" min="1" required>
+                <input type="number" id="numPeople" min="1" max="100" required>
             </label>
         </div>
         <div class="input-group">
             <label for="totalAmount">金額：
-                <input type="number" id="totalAmount" min="1" required>
+                <input type="number" id="totalAmount" min="1" max="999999" required>
             </label>
         </div>
 
@@ -67,7 +67,7 @@
                 <tr>
                     <td>計</td>
                     <td id="totalPayment">0 円</td>
-                    <td id="totalPercentage">0 %</td>
+                    <td id="totalPercentage">0.00 %</td>
                     <td></td>
                 </tr>
             </tfoot>
