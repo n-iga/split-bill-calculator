@@ -1,0 +1,194 @@
+/* header */
+h2,
+h3 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+h3 {
+    font-size: 1rem;
+    text-align: left;
+}
+
+/* body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 300px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-align {
+    text-align: right;
+}
+
+/* input */
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input,
+select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #007bff;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.input-group label {
+    flex: 1;
+    text-align: center;
+}
+
+.input-group input {
+    flex: 2;
+}
+
+/* button */
+.button-group {
+    display: block;
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
+    text-align: center;
+}
+
+button {
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#btn_calculation {
+    width: 55%;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.col1 {
+    width: 7%;
+}
+
+.col2, .col3 {
+    width: 25%;
+}
+
+.col4 {
+    width: 10%;
+}
+
+#resultTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#resultTable th,
+#resultTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#resultTable th {
+    background-color: #f2f2f2;
+}
+
+#resultTable input {
+    width: 70%;
+    padding: 0.5rem;
+    margin: 0;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* modal */
+.modal {
+    display: none;
+    /* 初期状態では非表示 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* 透過 */
+}
+
+/* modal content */
+.modal-content {
+    background-color: #ffffff;
+    margin: 20% auto 20% auto;
+    padding: 0.8rem 1.2rem 2.5rem 1.2rem;
+    width: 90%;
+    max-width: 210px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content label {
+    padding-left: 1rem;
+}
+
+#minUnit {
+    width: 40%;
+}
+
+/* modal close */
+.close {
+    margin: 5% 0% 5% 0%;
+    float: right;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* line */
+.line_01 {
+    margin: 10% 5% 10% 5%;
+}
