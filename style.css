@@ -6,7 +6,7 @@ h2,
 h3 {
     text-align: center;
     margin-top: 0;
-    color: #66A5C8;
+    color: #0071AE;
 }
 
 h2 {
@@ -61,7 +61,7 @@ select {
 
 input:focus,
 select:focus {
-    outline: 2px solid #8BC3E5;
+    outline: 2px solid #0071AE;
 }
 
 .input-group {
@@ -91,7 +91,7 @@ select:focus {
 button {
     font-size: 1rem;
     padding: 0.4rem 1rem 0.4rem 1rem;
-    background-color: #8BC3E5;
+    background-color: #0071AE;
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -99,7 +99,7 @@ button {
 }
 
 button:hover {
-    background-color: #66A5C8;
+    background-color: #0071AE;
 }
 
 #btn_calculation {
