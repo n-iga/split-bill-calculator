@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金額計算</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>金額計算</h2>
+
+        <!--入力-->
+        <div class="input-group">
+            <label for="numPeople">人数：
+                <input type="number" id="numPeople" min="1" required>
+            </label>
+        </div>
+        <div class="input-group">
+            <label for="totalAmount">金額：
+                <input type="number" id="totalAmount" min="1" required>
+            </label>
+        </div>
+
+        <div class="button-group">
+            <button id="btn_calculation" onclick="updateTable()">再計算</button>
+            <button id="btn_openOptionModal">設定</button>
+        </div>
+
+        <!---設定-->
+        <div id="calcModeModal" class="modal">
+            <div class="modal-content">
+                <h3>端数配分</h3>
+                <label><input type="radio" name="calcMode" value="even" checked> 余りを順番に配分</label>
+                <label><input type="radio" name="calcMode" value="extraPay"> 余りを1名が支払う</label>
+                <label><input type="radio" name="calcMode" value="refund"> 余りを1名がもらう</label>
+                <hr class="line_01">
+
+                <h3>最小単位</h3>
+                <label for="minUnit">
+                    <select id="minUnit" class="right-align">
+                        <option value="1">1</option>
+                        <option value="10">10</option>
+                        <option value="100">100</option>
+                        <option value="1000" selected>1000</option>
+                    </select>
+                    円
+                </label>
+                <span class="close" id="btn_closeOptionModal">Close</span>
+            </div>
+        </div>
+
+        <!--結果-->
+        <table id="resultTable">
+            <thead>
+                <tr>
+                    <th class="col1">#</th>
+                    <th class="col2">金額 (円)</th>
+                    <th class="col3">割合 (%)</th>
+                    <th class="col4">固定</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <td>計</td>
+                    <td id="totalPayment">0 円</td>
+                    <td id="totalPercentage">0 %</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+        <p id="errorMessage" class="error-message"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
